@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>Movie Registration System</h1>
+
+    <div class="scene">
+        <div class="app-box single" id="appBox">
+
+            <section class="pane pane-form">
+                <h2>Edit Movie: {{ movie.name }}</h2>
+
+                <form method="POST" id="movieForm">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn-3d btn-primary">💾 Update Movie</button>
+                    <a href="{% url 'movie_register' %}" class="btn-3d btn-cancel">Cancel</a>
+                </form>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
